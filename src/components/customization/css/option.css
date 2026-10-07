@@ -9,7 +9,7 @@
   transition: background-color 250ms linear, color 250ms linear, border-color 250ms linear;
 }
 
-[aria-expanded='true'] .ct-option:not(.ct-essential) {
+.ct-collapse[data-expanded='true'] .ct-option:not(.ct-essential) {
   scroll-margin-top: 2px;
 }
 

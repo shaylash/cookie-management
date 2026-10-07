@@ -23,7 +23,7 @@ describe('collapse', () => {
         <p></p>
       </Collapse>,
     );
-    expect(wrapper.find('div').prop('aria-expanded')).toBeFalsy();
+    expect(wrapper.find('div').prop('data-expanded')).toBeFalsy();
   });
 
   describe('rendering in an expanded state', () => {
@@ -71,7 +71,7 @@ describe('collapse', () => {
           </Collapse>
         </div>,
       );
-      expect(wrapper.find('div.ct-collapse').prop('aria-expanded')).toBeTruthy();
+      expect(wrapper.find('div.ct-collapse').prop('data-expanded')).toBeTruthy();
       expect(getStyleAttribute(wrapper, '.ct-collapse', 'overflow')).toBe('scroll');
     });
 
@@ -91,13 +91,13 @@ describe('collapse', () => {
             </Collapse>
           </div>,
         );
-        expect(wrapper.find('div.ct-collapse').prop('aria-expanded')).toBeTruthy();
+        expect(wrapper.find('div.ct-collapse').prop('data-expanded')).toBeTruthy();
 
         // Simulate a resize event
         global.dispatchEvent(new Event('resize'));
         expect(onWindowResize).toBeCalledTimes(1);
         const collapsibleDiv = wrapper.find('div.ct-collapse');
-        expect(collapsibleDiv.prop('aria-expanded')).toBeTruthy();
+        expect(collapsibleDiv.prop('data-expanded')).toBeTruthy();
         const transition = () => getStyleAttribute(wrapper, 'div.ct-collapse', 'transition');
         expect(transition()).toBe('height 0ms ease-out');
 

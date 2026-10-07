@@ -13,11 +13,13 @@ describe('ToggleButton', () => {
   it('should render properly', () => {
     const wrapper = shallow(<ToggleButton {...defaultProps} />);
     expect(wrapper.hasClass('ct-active')).toBeFalsy();
+    expect(wrapper.prop('aria-expanded')).toBeFalsy();
   });
 
   it('should render properly in an active state', () => {
     const wrapper = shallow(<ToggleButton {...defaultProps} isActive={true} />);
     expect(wrapper.hasClass('ct-active')).toBeTruthy();
+    expect(wrapper.prop('aria-expanded')).toBeTruthy();
   });
 
   it('calls the correct function when clicked', () => {

@@ -16,6 +16,8 @@ const ToggleButton: FunctionalComponent<Props> = ({ label, isActive, toggleCusto
     <button
       className={`ct-customization-button ${isActive ? 'ct-active' : ''}`}
       onClick={handleClick}
+      aria-expanded={isActive}
+      aria-controls="ct-customization"
     >
       {label}{' '}
       <svg
