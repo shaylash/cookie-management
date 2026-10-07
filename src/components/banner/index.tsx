@@ -17,15 +17,17 @@ const Banner: FunctionalComponent<Props> = ({ header }) => {
       <div className="ct-banner-intro">
         <div className="ct-banner-header">
           {keyExists('subTitle') && <p>{getValue('subTitle')}</p>}
-          {keyExists('title') && <h1>{getValue('title')}</h1>}
+          {keyExists('title') && <p class="h1">{getValue('title')}</p>}
         </div>
-        <div className="ct-banner-logo">
+        <div className="ct-banner-logo" aria-hidden="true" role="presentation">
           <svg
             width="33"
             height="33"
             viewBox="0 0 26 26"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            role="presentation"
           >
             <path
               fillRule="evenodd"

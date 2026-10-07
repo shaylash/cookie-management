@@ -8,12 +8,12 @@
 }
 
 .ct-banner p,
-.ct-banner h1 {
+.ct-banner .h1 {
   margin-top: 0;
   margin-bottom: var(--ct-text-margin);
 }
 
-.ct-banner h1 {
+.ct-banner .h1 {
   font-size: var(--ct-heading-font-size);
   font-weight: 700;
   color: var(--ct-title);

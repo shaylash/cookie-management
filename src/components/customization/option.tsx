@@ -30,7 +30,7 @@ const Option: FunctionalComponent<Props> = ({ isOpen, option, essentialLabel, on
         tabIndex={isOpen ? 0 : -1}
         aria-hidden={!isOpen}
       />
-      <label htmlFor={option.id} className="ct-option-info">
+      <label htmlFor={option.id} className="ct-option-info" aria-hidden={!isOpen}>
         <p>
           <strong>{option.label}</strong>
           {option.description}
