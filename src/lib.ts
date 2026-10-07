@@ -20,6 +20,7 @@ export const configure = (conf: Config) => {
   container.className = 'cookie-management';
   container.style.bottom = '-600px';
   container.style.display = 'none';
+  /*container.setAttribute('tabindex', '-1');*/
   const shadowRoot = container.attachShadow({ mode: 'open' });
   let css: HTMLStyleElement | HTMLLinkElement;
   /* istanbul ignore if */
@@ -46,7 +47,7 @@ export const configure = (conf: Config) => {
     return;
   }
 
-  document.body.prepend(container);
+  document.body.append(container);
   render(h(App, { ...config, ee }), shadowRoot);
 };
 

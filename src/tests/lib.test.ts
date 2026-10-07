@@ -47,11 +47,11 @@ describe('Cookie Though', () => {
 
       hide();
       expect(container?.classList).not.toContain('visible');
-      expect(container?.getAttribute('aria-hidden')).toBe('true');
+      expect(container?.hasAttribute('inert')).toBe(true);
 
       show();
       expect(container?.classList).toContain('visible');
-      expect(container?.getAttribute('aria-hidden')).toBe('false');
+      expect(container?.hasAttribute('inert')).toBe(false);
     });
 
     it('will return the preferences with the getPreferences function', () => {
