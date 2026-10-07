@@ -17,7 +17,7 @@ const ee = new EventEmitter();
 export const configure = (conf: Config) => {
   config = conf;
   const container = document.createElement('aside');
-  container.className = 'cookie-though';
+  container.className = 'cookie-management';
   container.style.bottom = '-600px';
   container.style.display = 'none';
   const shadowRoot = container.attachShadow({ mode: 'open' });
@@ -40,7 +40,7 @@ export const configure = (conf: Config) => {
 
   shadowRoot.appendChild(css);
 
-  const previousInstance = document.querySelector('.cookie-though') as HTMLElement;
+  const previousInstance = document.querySelector('.cookie-management') as HTMLElement;
   if (previousInstance && previousInstance.shadowRoot) {
     render(h(App, { ...config, ee }), previousInstance.shadowRoot);
     return;

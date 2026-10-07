@@ -3,10 +3,10 @@
 exports[`Cookie Though should render properly 1`] = `
 <body>
   <button
-    id="manage-cookie-though"
+    id="manage-cookie-management"
   />
   <div
-    className="cookie-though"
+    className="cookie-management"
   >
     <App
       customizeLabel="customize"

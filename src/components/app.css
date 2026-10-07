@@ -1,4 +1,4 @@
-:host(.cookie-though) {
+:host(.cookie-management) {
   display: block !important;
   font-family: var(--ct-primary-font), Arial, Helvetica, sans-serif;
   font-weight: var(--ct-primary-font-weight);
@@ -15,23 +15,23 @@
 }
 
 @media only screen and (max-width: 480px) {
-  :host(.cookie-though) {
+  :host(.cookie-management) {
     /* left positioning and left/right padding */
     width: calc(100vw - calc(var(--ct-default-padding) * 2));
   }
 }
 
 @media (prefers-reduced-motion) {
-  :host(.cookie-though) {
+  :host(.cookie-management) {
     transition: none;
   }
 }
 
-:host(.cookie-though.visible) {
+:host(.cookie-management.visible) {
   bottom: var(--ct-default-padding) !important;
 }
 
-:host(.cookie-though) {
+:host(.cookie-management) {
   font-family: var(--ct-primary-font), Arial, Helvetica, sans-serif;
   font-weight: var(--ct-primary-font-weight);
   font-size: var(--ct-text-font-size);

@@ -28,11 +28,11 @@ describe('Cookie Though', () => {
 
   beforeEach(() => {
     const manageCookiesElement = document.createElement('button');
-    manageCookiesElement.id = 'manage-cookie-though';
+    manageCookiesElement.id = 'manage-cookie-management';
     document.body.append(manageCookiesElement);
 
     container = document.createElement('div');
-    container.className = 'cookie-though';
+    container.className = 'cookie-management';
     container.attachShadow({ mode: 'open' });
 
     const textDiv = document.createElement('div');
@@ -73,7 +73,7 @@ describe('Cookie Though', () => {
         DEFAULT_COOKIE_PREFERENCES.cookieOptions,
       )}`;
       mount(
-        <div className="cookie-though">
+        <div className="cookie-management">
           <App
             customizeLabel="customize"
             header={{ description }}
@@ -90,7 +90,7 @@ describe('Cookie Though', () => {
         setVisible: jest.fn().mockImplementation(() => 'You have called setVisible'),
       }));
       mount(
-        <div className="cookie-though">
+        <div className="cookie-management">
           <App
             customizeLabel="customize"
             header={{ description }}
@@ -108,8 +108,8 @@ describe('Cookie Though', () => {
   it('should render properly', () => {
     const wrapper = shallow(
       <body>
-        <button id="manage-cookie-though"></button>
-        <div className="cookie-though">
+        <button id="manage-cookie-management"></button>
+        <div className="cookie-management">
           <App
             customizeLabel="customize"
             header={{ description }}
@@ -147,7 +147,7 @@ describe('Cookie Though', () => {
       fontSizes.forEach((fontSize, i) => {
         mockGetComputedStyle(fontSize);
         renderApp(`${fontSize}px`);
-        const container = document.querySelector('.cookie-though') as HTMLElement;
+        const container = document.querySelector('.cookie-management') as HTMLElement;
         switch (i) {
           case 2:
             expect(container.style.width).toEqual(CONTAINER_WIDTHS[2]);
@@ -174,7 +174,7 @@ describe('Cookie Though', () => {
       fontSizes.forEach(fontSize => {
         mockGetComputedStyle(fontSize);
         renderApp(`${fontSize}px`);
-        const container = document.querySelector('.cookie-though') as HTMLElement;
+        const container = document.querySelector('.cookie-management') as HTMLElement;
         expect(container.style.width).toBe('');
       });
     });
@@ -185,7 +185,7 @@ describe('Cookie Though', () => {
       fontSizes.forEach((fontSize, i) => {
         mockGetComputedStyle(fontSize);
         renderApp(`${fontSize}px`);
-        const container = document.querySelector('.cookie-though') as HTMLElement;
+        const container = document.querySelector('.cookie-management') as HTMLElement;
         expect(container.style.bottom).toEqual(MOBILE_CONTAINER_BOTTOMS[i]);
       });
     });

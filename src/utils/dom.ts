@@ -1,5 +1,5 @@
 export const setVisible = (value: boolean) => {
-  const container = document.querySelector<HTMLElement>('.cookie-though')!;
+  const container = document.querySelector<HTMLElement>('.cookie-management')!;
   if (value) {
     container.style.display = 'block';
     container.setAttribute('aria-hidden', 'false');

@@ -20,7 +20,7 @@ export const MOBILE_CONTAINER_BOTTOMS = ['-400px', '-500px', '-650px'];
  * Sets the width of the modal in case the user has a larger font size
  */
 const setModalWidth = () => {
-  const rootNode = document.querySelector('.cookie-though') as HTMLDivElement;
+  const rootNode = document.querySelector('.cookie-management') as HTMLDivElement;
   const textNode = rootNode.shadowRoot!.querySelector('.ct-banner-explanation') as HTMLDivElement;
   const textFontSize = +window.getComputedStyle(textNode).fontSize.slice(0, -2);
   const isMobile = window.innerWidth < 768;

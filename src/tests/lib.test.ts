@@ -12,7 +12,7 @@ describe('Cookie Though', () => {
 
   beforeEach(() => {
     const manageCookiesElement = document.createElement('button');
-    manageCookiesElement.id = 'manage-cookie-though';
+    manageCookiesElement.id = 'manage-cookie-management';
     document.body.append(manageCookiesElement);
   });
 
@@ -23,20 +23,20 @@ describe('Cookie Though', () => {
   it('can render the app based on the init function', () => {
     init({ ...englishMockConfig });
 
-    expect(document.querySelector('.cookie-though')).toBeDefined();
+    expect(document.querySelector('.cookie-management')).toBeDefined();
     expect(document.querySelector('.visible')).toBeDefined();
   });
 
   describe('when the app is initialised', () => {
     it('can switch the config', () => {
       init({ ...englishMockConfig });
-      const shadowRoot = document.querySelector('.cookie-though')?.shadowRoot as ShadowRoot;
+      const shadowRoot = document.querySelector('.cookie-management')?.shadowRoot as ShadowRoot;
 
       let cookiePolicyLink = shadowRoot.querySelector('a');
       expect(cookiePolicyLink?.text).toEqual(englishMockConfig.cookiePolicy.label);
 
       configure({ ...dutchMockConfig });
-      expect(document.getElementsByClassName('cookie-though').length).toEqual(1);
+      expect(document.getElementsByClassName('cookie-management').length).toEqual(1);
       cookiePolicyLink = shadowRoot.querySelector('a');
       expect(cookiePolicyLink?.text).toEqual(dutchMockConfig.cookiePolicy.label);
     });
@@ -105,7 +105,7 @@ describe('Cookie Though', () => {
         });
       });
       init({ ...englishMockConfig });
-      const shadowRoot = document.querySelector('.cookie-though')?.shadowRoot as ShadowRoot;
+      const shadowRoot = document.querySelector('.cookie-management')?.shadowRoot as ShadowRoot;
 
       const acceptAllButton = Array.from(shadowRoot.querySelectorAll('button')).find(
         button => button.textContent === 'Accept all',
@@ -132,7 +132,7 @@ describe('Cookie Though', () => {
     });
     it('will initialise the app when a listener is attached to the cookie preferences changed event', () => {
       lib.onPreferencesChanged(jest.fn());
-      expect(document.querySelector('.cookie-though')).toBeDefined();
+      expect(document.querySelector('.cookie-management')).toBeDefined();
       expect(document.querySelector('.visible')).toBeDefined();
     });
 
@@ -166,19 +166,19 @@ describe('Cookie Though', () => {
         ],
         isCustomised: false,
       });
-      expect(document.querySelector('.cookie-though')).toBeDefined();
+      expect(document.querySelector('.cookie-management')).toBeDefined();
       expect(document.querySelector('.visible')).toBeDefined();
     });
 
     it('will initialise the app and show the cookie wall when show is called', () => {
       lib.show();
-      expect(document.querySelector('.cookie-though')).toBeDefined();
+      expect(document.querySelector('.cookie-management')).toBeDefined();
       expect(document.querySelector('.visible')).toBeDefined();
     });
 
     it('will initialise the app and hide the cookie wall when hide is called', () => {
       lib.hide();
-      expect(document.querySelector('.cookie-though')).toBeDefined();
+      expect(document.querySelector('.cookie-management')).toBeDefined();
       expect(document.querySelector('.visible')).toBeNull();
     });
   });

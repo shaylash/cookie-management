@@ -28,7 +28,7 @@ const switchConfig = () => {
 };
 
 const addCustomListeners = () => {
-  const manageCookiesElement = document.getElementById('manage-cookie-though')!;
+  const manageCookiesElement = document.getElementById('manage-cookie-management')!;
   const switchCookiesElement = document.getElementById('switch-config')!;
 
   manageCookiesElement.addEventListener('click', () => show());
@@ -38,7 +38,7 @@ const addCustomListeners = () => {
 window.addEventListener('DOMContentLoaded', () => {
   initialiseCookieThough();
   addCustomListeners();
-  document.getElementById('manage-cookie-though')?.addEventListener('click', () => {
+  document.getElementById('manage-cookie-management')?.addEventListener('click', () => {
     show();
   });
   console.log('current preferences', getPreferences());

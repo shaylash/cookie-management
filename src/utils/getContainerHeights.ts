@@ -1,5 +1,5 @@
 const getContainerHeights = () => {
-  const shadowRoot = document.querySelector('.cookie-though')!.shadowRoot!;
+  const shadowRoot = document.querySelector('.cookie-management')!.shadowRoot!;
   const banner = shadowRoot.querySelector('.ct-banner')!;
   const customizationButton = shadowRoot.querySelector('.ct-customization-button')!;
   const acceptance = shadowRoot.querySelector('.ct-acceptance')!;

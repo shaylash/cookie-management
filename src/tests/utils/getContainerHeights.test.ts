@@ -3,7 +3,7 @@ import getContainerHeights from '../../utils/getContainerHeights';
 describe('getContainerHeights', () => {
   it('can get the containerHeights', () => {
     const container = document.createElement('div');
-    container.className = 'cookie-though';
+    container.className = 'cookie-management';
     container.attachShadow({ mode: 'open' });
 
     const banner = document.createElement('div');
