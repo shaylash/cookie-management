@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "build:site": "tsc --noEmit && parcel build src/index.html --no-source-maps --global CookieManagement --out-dir public --no-content-hash && ./scripts/replace_css.sh staging",
-    "build:lib": "parcel build src/lib.ts --no-source-maps --global CookieManagement --out-dir dist --experimental-scope-hoisting && ./scripts/replace_css.sh",
+    "build:lib": "parcel build src/lib.ts --no-source-maps --global CookieManagement --out-dir dist --experimental-scope-hoisting && ./scripts/replace_css.sh && npm run build:types",
+    "build:types": "tsc -p tsconfig.build.json",
     "build:docs": "npm run build:sass && npm run build:jekyll",
     "dev": "parcel src/index.html --global CookieManagement",
     "dev:site": "./scripts/site_exist.sh && npm-run-all -p serve watch:sass watch:jekyll",
