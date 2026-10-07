@@ -61,7 +61,13 @@ const Collapse: FunctionalComponent<Props> = ({ isOpen, children, onWindowResize
   }, [isOpen]);
 
   return (
-    <div className="ct-collapse" ref={collapsibleDivRef} aria-expanded={isOpen} tabIndex={-1}>
+    <div
+      className="ct-collapse"
+      ref={collapsibleDivRef}
+      aria-expanded={isOpen}
+      tabIndex={-1}
+      data-lenis-prevent={true}
+    >
       {children}
     </div>
   );

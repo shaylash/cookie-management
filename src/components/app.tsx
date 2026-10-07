@@ -31,6 +31,8 @@ const setModalWidth = () => {
 
   rootNode.style.bottom = CONTAINER_BOTTOMS[0];
 
+  rootNode.setAttribute('data-lenis-prevent', 'true');
+
   if (13 < textFontSize && textFontSize <= 14) {
     if (!isMobile) rootNode.style.width = CONTAINER_WIDTHS[0];
   }
