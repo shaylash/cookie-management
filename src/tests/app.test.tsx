@@ -4,11 +4,7 @@ import toJson from 'enzyme-to-json';
 import { englishMockPolicies } from './__mocks__/policies';
 import { COOKIE_PREFERENCES_KEY, formatToCookie } from '../hooks/useCookie';
 import { englishMockConfig } from './__mocks__/config';
-import App, {
-  CONTAINER_BOTTOMS,
-  CONTAINER_WIDTHS,
-  MOBILE_CONTAINER_BOTTOMS,
-} from '../components/app';
+import App, { CONTAINER_WIDTHS } from '../components/app';
 import clearCookies from './helpers/clearCookies';
 import { CookiePreferences } from '../types';
 
@@ -142,29 +138,14 @@ describe('Cookie Though', () => {
       });
     };
 
-    it('should adjust the width and bottom of the container based on the font', () => {
+    it('should adjust the width of the container based on the font', () => {
       const fontSizes = [13.5, 15, 17, 19, 23];
+      const expectedWidths = [0, 1, 2, 3, 3].map(i => CONTAINER_WIDTHS[i]);
       fontSizes.forEach((fontSize, i) => {
         mockGetComputedStyle(fontSize);
         renderApp(`${fontSize}px`);
         const container = document.querySelector('.cookie-management') as HTMLElement;
-        switch (i) {
-          case 2:
-            expect(container.style.width).toEqual(CONTAINER_WIDTHS[2]);
-            expect(container.style.bottom).toEqual(CONTAINER_BOTTOMS[1]);
-            break;
-          case 3:
-            expect(container.style.width).toEqual(CONTAINER_WIDTHS[3]);
-            expect(container.style.bottom).toEqual(CONTAINER_BOTTOMS[2]);
-            break;
-          case 4:
-            expect(container.style.width).toEqual(CONTAINER_WIDTHS[3]);
-            expect(container.style.bottom).toEqual(CONTAINER_BOTTOMS[3]);
-            break;
-          default:
-            expect(container.style.width).toEqual(CONTAINER_WIDTHS[i]);
-            expect(container.style.bottom).toEqual(CONTAINER_BOTTOMS[i]);
-        }
+        expect(container.style.width).toEqual(expectedWidths[i]);
       });
     });
 
@@ -176,17 +157,6 @@ describe('Cookie Though', () => {
         renderApp(`${fontSize}px`);
         const container = document.querySelector('.cookie-management') as HTMLElement;
         expect(container.style.width).toBe('');
-      });
-    });
-
-    it('should set the bottom attribute if the width is smaller than the breakpoint and the font size is large', () => {
-      const fontSizes = [17, 19, 23];
-      global.innerWidth = 375;
-      fontSizes.forEach((fontSize, i) => {
-        mockGetComputedStyle(fontSize);
-        renderApp(`${fontSize}px`);
-        const container = document.querySelector('.cookie-management') as HTMLElement;
-        expect(container.style.bottom).toEqual(MOBILE_CONTAINER_BOTTOMS[i]);
       });
     });
   });

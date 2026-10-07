@@ -18,7 +18,6 @@ export const configure = (conf: Config) => {
   config = conf;
   const container = document.createElement('aside');
   container.className = 'cookie-management';
-  container.style.bottom = '-600px';
   container.style.display = 'none';
   /*container.setAttribute('tabindex', '-1');*/
   const shadowRoot = container.attachShadow({ mode: 'open' });

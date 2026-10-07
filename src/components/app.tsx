@@ -13,8 +13,6 @@ interface Props extends Config {
 }
 
 export const CONTAINER_WIDTHS = ['360px', '380px', '425px', '500px'];
-export const CONTAINER_BOTTOMS = ['-300px', '-350px', '-400px', '-500px'];
-export const MOBILE_CONTAINER_BOTTOMS = ['-400px', '-500px', '-650px'];
 
 /**
  * Sets the width of the modal in case the user has a larger font size
@@ -25,48 +23,27 @@ const setModalWidth = () => {
   const textFontSize = +window.getComputedStyle(textNode).fontSize.slice(0, -2);
   const isMobile = window.innerWidth < 768;
 
-  if (isMobile) {
-    rootNode.style.removeProperty('width');
-  }
-
-  rootNode.style.bottom = CONTAINER_BOTTOMS[0];
-
   rootNode.setAttribute('data-lenis-prevent', 'true');
 
+  if (isMobile) {
+    rootNode.style.removeProperty('width');
+    return;
+  }
+
   if (13 < textFontSize && textFontSize <= 14) {
-    if (!isMobile) rootNode.style.width = CONTAINER_WIDTHS[0];
+    rootNode.style.width = CONTAINER_WIDTHS[0];
   }
 
   if (14 < textFontSize && textFontSize <= 16) {
-    if (!isMobile) rootNode.style.width = CONTAINER_WIDTHS[1];
-    rootNode.style.bottom = CONTAINER_BOTTOMS[1];
+    rootNode.style.width = CONTAINER_WIDTHS[1];
   }
 
   if (16 < textFontSize && textFontSize <= 18) {
-    if (isMobile) {
-      rootNode.style.bottom = MOBILE_CONTAINER_BOTTOMS[0];
-    } else {
-      rootNode.style.bottom = CONTAINER_BOTTOMS[1];
-      rootNode.style.width = CONTAINER_WIDTHS[2];
-    }
+    rootNode.style.width = CONTAINER_WIDTHS[2];
   }
 
-  if (18 < textFontSize && textFontSize <= 22) {
-    if (isMobile) {
-      rootNode.style.bottom = MOBILE_CONTAINER_BOTTOMS[1];
-    } else {
-      rootNode.style.bottom = CONTAINER_BOTTOMS[2];
-      rootNode.style.width = CONTAINER_WIDTHS[3];
-    }
-  }
-
-  if (textFontSize > 22) {
-    if (isMobile) {
-      rootNode.style.bottom = MOBILE_CONTAINER_BOTTOMS[2];
-    } else {
-      rootNode.style.bottom = CONTAINER_BOTTOMS[3];
-      rootNode.style.width = CONTAINER_WIDTHS[3];
-    }
+  if (textFontSize > 18) {
+    rootNode.style.width = CONTAINER_WIDTHS[3];
   }
 };
 

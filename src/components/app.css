@@ -5,12 +5,14 @@
     font-weight: var(--ct-primary-font-weight);
     position: fixed;
     left: var(--ct-default-padding);
+    bottom: var(--ct-default-padding);
     width: 343px;
     max-height: calc(100% - var(--ct-default-padding) * 2);
     border-radius: 20px;
     box-shadow: 0 2px 19px -4px rgba(1, 1, 63, 0.1);
     background: var(--ct-white);
-    transition: bottom 250ms linear;
+    transform: translateY(calc(100% + var(--ct-default-padding)));
+    transition: transform 250ms linear;
     box-sizing: content-box !important;
     z-index: var(--ct-z-index);
 }
@@ -29,7 +31,7 @@
 }
 
 :host(.cookie-management.visible) {
-    bottom: var(--ct-default-padding) !important;
+    transform: none;
 }
 
 :host(.cookie-management) {
