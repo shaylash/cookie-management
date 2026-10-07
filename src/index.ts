@@ -41,5 +41,5 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('manage-cookie-management')?.addEventListener('click', () => {
     show();
   });
-  console.log('current preferences', getPreferences());
+  /*console.log('current preferences', getPreferences());*/
 });
